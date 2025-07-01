@@ -171,20 +171,6 @@ def parse_args():
         "More details here: https://arxiv.org/abs/2303.09556.",
     )
     parser.add_argument(
-        "--dream_training",
-        action="store_true",
-        help=(
-            "Use the DREAM training method, which makes training more efficient and accurate at the ",
-            "expense of doing an extra forward pass. See: https://arxiv.org/abs/2312.00210",
-        ),
-    )
-    parser.add_argument(
-        "--dream_detail_preservation",
-        type=float,
-        default=1.0,
-        help="Dream detail preservation factor p (should be greater than 0; default=1.0, as suggested in the paper)",
-    )
-    parser.add_argument(
         "--DRtune_bp_steps",
         type=int,
         default=3,
@@ -932,18 +918,6 @@ def main():
                 else:
                     raise ValueError(f"Unknown prediction type {noise_scheduler.config.prediction_type}")
 
-                if args.dream_training:
-                    noisy_latents, target = compute_dream_and_update_latents(
-                        unet,
-                        noise_scheduler,
-                        timesteps,
-                        noise,
-                        noisy_latents,
-                        target,
-                        final_encoder_hidden_states,
-                        args.dream_detail_preservation,
-                    )
-
                 # Predict the noise residual and compute loss
                 model_pred = unet(noisy_latents, timesteps, encoder_hidden_states,cross_attention_kwargs={"att_embedding":encoder_hidden_states_atts} ,return_dict=False)[0]#4G
 
@@ -1063,7 +1037,6 @@ def main():
                 logs = {"mse_loss": mse_loss.detach().item(), "bce_loss":bce_loss.detach().item(),'id_loss':id_loss.detach().item(), "lr": lr_scheduler.get_last_lr()[0]}
             else:
                 logs = {"mse_loss": mse_loss.detach().item(), "bce_loss":bce_loss.detach().item(), "lr": lr_scheduler.get_last_lr()[0]}
-            # logs = {"mse_loss": mse_loss.detach().item(), "lr": lr_scheduler.get_last_lr()[0]}
             progress_bar.set_postfix(**logs)
 
             if global_step >= args.max_train_steps:
