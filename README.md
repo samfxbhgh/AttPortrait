@@ -19,9 +19,26 @@ conda activate AttPortrait
 ```
 
 ## 🤖️ Download Models
-To use AttPortrait, you need to download the model files from [Arc2Face](https://github.com/foivospar/Arc2Face) and place them in the "model" directory. And You can download the paper model from [Google Drive]() and place it in the 'model/checkpoint' directory.
-Make sure the directory structure is as follows:
+Firstly, you need to download the model files from [Arc2Face](https://github.com/foivospar/Arc2Face) and get the `model` directory as follows: 
 
+```text
+models
+├── antelopev2
+│   ├── 1k3d68.onnx
+│   ├── 2d106det.onnx
+│   ├── arcface.onnx
+│   ├── genderage.onnx
+│   └── scrfd_10g_bnkps.onnx
+├── arc2face
+│   ├── config.json
+│   └── diffusion_pytorch_model.safetensors
+└── encoder
+    ├── config.json
+    └── pytorch_model.bin
+```
+
+Then you need to download the paper model from [Google Drive]https://drive.google.com/drive/folders/1Ai-6tthIgkW0fw_wwYG_XnwFXr68CFcI?usp=sharing) and place it in the `model/checkpoint` directory.
+Please make sure the final directory structure is as follows:
 ```text
 models
 ├── antelopev2
@@ -37,8 +54,7 @@ models
 │   ├── config.json
 |   └── pytorch_model.bin
 └── checkpoint
-    └── diffusion_pytorch_model.safetensors
-    
+    └── diffusion_pytorch_model.safetensors 
 ```
 
 ## 🔥 Training
@@ -62,9 +78,7 @@ assets/examples_data
 │   └── 182768.jpg.embedding.npy
 └── ...
 ```
-
-The code will load the data based on `metadata.jsonl`.
-Each line in `metadata.jsonl` is a dictionary containing paths to an image and its annotations (attribute labels).
+The `image` directory contains the aligned face image and the `embeddings` directory contains the face recognition feature of the corresponding face image. The code will load the data based on `metadata.jsonl`. Each line in `metadata.jsonl` is a dictionary containing paths to an image and its annotations (attribute labels).
 For example:
 
 ```python
