@@ -37,7 +37,7 @@ models
     └── pytorch_model.bin
 ```
 
-Then you need to download the paper model from [Google Drive]https://drive.google.com/drive/folders/1Ai-6tthIgkW0fw_wwYG_XnwFXr68CFcI?usp=sharing) and place it in the `model/checkpoint` directory.
+Then you need to download the paper model from [Google Drive](https://drive.google.com/drive/folders/1Ai-6tthIgkW0fw_wwYG_XnwFXr68CFcI?usp=sharing) and place it in the `model/checkpoint` directory.
 Please make sure the final directory structure is as follows:
 ```text
 models
