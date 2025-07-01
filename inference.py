@@ -65,9 +65,21 @@ id_emb = torch.tensor(faces['embedding'], dtype=torch.float16)[None].cuda()
 id_emb = id_emb/torch.norm(id_emb, dim=1, keepdim=True)   # normalize embedding
 id_emb = project_face_embs(pipeline, id_emb)    # pass through the encoder
 
-#replace here with the attribute label that you want to generate
-atts=[0,1,1,0,0,0,0,0,0,0,0,0]
-
+# Set each attribute to 1 (enable) or 0 (disable)
+# replace here with the attribute label that you want to generate
+atts = [
+    0,  # Bald
+    1,  # Young
+    1,  # Male
+    0,  # Bangs
+    0,  # Black_Hair
+    0,  # Blond_Hair
+    0,  # Bushy_Eyebrows
+    0,  # Eyeglasses
+    0,  # Mouth_Slightly_Open
+    0,  # No_Beard
+    0,  # Pale_Skin
+]
 
 prompt='who is '
 for i in range(len(atts)):
