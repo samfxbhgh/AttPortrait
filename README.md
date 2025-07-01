@@ -7,8 +7,8 @@
 Clone this repo:
 
 ```shell
-git clone https://github.com/VIPL-GENUN/Jodi.git
-cd Jodi
+git clone https://github.com/samfxbhgh/AttPortrait.git
+cd AttPortrait
 ```
 
 Create and activate a new conda environment:
@@ -19,13 +19,26 @@ conda activate AttPortrait
 ```
 
 ## 🤖️ Download Models
+To use AttPortrait, you need to download the model files from [Arc2Face](https://github.com/foivospar/Arc2Face) and place them in the "model" directory. And You can download the paper model from [Google Drive]() and place it in the 'model/checkpoint' directory.
+Make sure the directory structure is as follows:
 
-We provide our model on [HuggingFace](https://huggingface.co/VIPL-GENUN/Jodi).
-The model will be automatically downloaded when you launch the Gradio demo,
-or you can download it manually using the following command:
-
-```shell
-huggingface-cli download VIPL-GENUN/Jodi
+```text
+models
+├── antelopev2
+│   ├── 1k3d68.onnx
+│   ├── 2d106det.onnx
+│   ├── arcface.onnx
+│   ├── genderage.onnx
+│   └── scrfd_10g_bnkps.onnx
+├── arc2face
+│   ├── config.json
+│   └── diffusion_pytorch_model.safetensors
+├── encoder
+│   ├── config.json
+|   └── pytorch_model.bin
+└── checkpoint
+    └── diffusion_pytorch_model.safetensors
+    
 ```
 
 ## 🔥 Training
@@ -60,10 +73,7 @@ For example:
 ```
 
 ### Step 2: Download Models
-
-To use AttPortrait, you need to download the model files from [Arc2Face](https://github.com/foivospar/Arc2Face) and place them in the "model" directory. 
-
-You also need two additional files:
+For training, you need two additional files:
 1. The **attribute classifier checkpoint**
 2. The **face recognition model** from [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)
 
@@ -72,23 +82,12 @@ For your convenience, we provide a simplified package containing only the requir
 After downloading, please place all required files into the `model` directory.  
 Make sure the directory structure is as follows:
 ```text
-model
-├── antelopev2
-│   ├── 1k3d68.onnx
-│   ├── 2d106det.onnx
-│   ├── arcface.onnx
-│   ├── genderage.onnx
-│   └── scrfd_10g_bnkps.onnx
-├── arc2face
-│   ├── config.json
-│   └── diffusion_pytorch_model.safetensors
-├── encoder
-│   ├── config.json
-|   └── pytorch_model.bin
+models
+├── ...
 ├── classifier
 │   └── best_model.ckpt
-├── arcface_glint360K_r100
-│   └── backbone.pth
+└── arcface_glint360K_r100
+    └── backbone.pth
 ```
 
 ### Step 3: Start Training

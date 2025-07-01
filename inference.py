@@ -38,7 +38,7 @@ unet.set_default_attn_processor()
 hack_unet_attn_layers(unet, ATTAttnProcessor)
 
 # Replace here with ModelCheckpoint
-file_path=os.path.join('checkpoint/unet','diffusion_pytorch_model.safetensors')
+file_path=os.path.join('models/checkpoints','diffusion_pytorch_model.safetensors')
 unet_weights = load_file(file_path)
 unet.load_state_dict(unet_weights,strict=True)
 
