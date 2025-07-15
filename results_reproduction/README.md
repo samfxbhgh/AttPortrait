@@ -150,7 +150,7 @@ embedding dir = '/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/data
 image jsonl = '/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/datas/arc2face_synth-500/myval.jsonl'
 ```
 
-Please see [attportrait/data.py](./attportrait/data.py) for more details.
+Please see [attportrait/data.py](../attportrait/data.py) for more details.
 
 ## Weights Path
 ### Our Model
@@ -169,4 +169,4 @@ Please see [attportrait/data.py](./attportrait/data.py) for more details.
 ### Other weights
 `/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/models`
 
-Please see [README.md](./README.md) for more details.
+Please see [README.md](../README.md) for more details.
