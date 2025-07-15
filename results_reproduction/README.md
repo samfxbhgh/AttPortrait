@@ -152,7 +152,8 @@ image jsonl = '/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/datas/
 
 Please see [attportrait/data.py](./attportrait/data.py) for more details.
 
-## Weights Path 
+## Weights Path
+### Our Model
 | Variant                   | Path                                                                 |
 |--------------------------|----------------------------------------------------------------------|
 | **Full Model**           | `/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/paper/checkpoint-60000/unet` |
@@ -161,3 +162,11 @@ Please see [attportrait/data.py](./attportrait/data.py) for more details.
 | **w/o Denoising**        | `/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/paper_wo_denoise/checkpoint-60000/unet` |
 | **w/o ID Loss**          | `/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/paper_wo_ID_loss/checkpoint-60000/unet` |
 | **w/o DCA**              | `/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/paper_wo_DCA/checkpoint-60000/unet` |
+
+### Stable Diffusion v1.5
+`/data/hezhenliang/users/zhangyuhao/stable-diffusion-v1-5`
+
+### Other weights
+`/data/hezhenliang/users/zhangyuhao/check_paper/AttPortrait/models`
+
+Please see [README.md](./README.md) for more details.
