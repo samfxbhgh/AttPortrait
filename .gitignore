@@ -3,4 +3,3 @@ __pycache__/
 /models/
 /checkpoints/
 test.py
-*.DS_Store
